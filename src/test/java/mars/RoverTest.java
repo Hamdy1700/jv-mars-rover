@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RoverTest {
 
     Rover max = new Rover("Max", new Position(new Point(0, 5), CardinalDirection.N));
+    Rover gema = new Rover("Gema", new Position(new Point(0, 10), CardinalDirection.N));
 
     @Test
     void testRotateStandard() {
@@ -58,12 +59,21 @@ class RoverTest {
     @Test
     void testRotateExceptional() {
 
-        var input1 = Instruction.M;
 
-        assertThrows(IllegalArgumentException.class,
-                () -> max.rotate(input1)
+        var input1 = Instruction.M; //input part of test #1
+
+        assertAll(
+                () -> assertThrows(IllegalArgumentException.class,
+                        () -> max.rotate(input1)
+                ),
+
+                () -> assertThrows(IllegalArgumentException.class,
+                        () -> max.rotate(null)
+                )
         );
 
     }
+
+
 
 }
