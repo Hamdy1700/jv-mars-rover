@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RoverTest {
 
-    Rover max = new Rover("Max", new Position(new Point(0, 5), CardinalDirection.N));
-    Rover gema = new Rover("Gema", new Position(new Point(0, 10), CardinalDirection.N));
+    Rover max = new Rover(new Position(new Point(0, 5), CardinalDirection.N));
+    Rover gema = new Rover(new Position(new Point(0, 10), CardinalDirection.N));
 
     @Test
     void testRotateStandard() {

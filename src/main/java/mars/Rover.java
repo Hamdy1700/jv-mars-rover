@@ -6,11 +6,9 @@ import static mars.CardinalDirection.*;
 
 public class Rover {
 
-    private final String name;
     private Position position;
 
-    public Rover(String name, Position position) {
-        this.name = name;
+    public Rover(Position position) {
         this.position = position;
     }
 
