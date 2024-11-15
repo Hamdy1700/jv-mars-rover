@@ -20,10 +20,10 @@ class PositionParserTest {
         var input3 = "9 4 s";
         var input4 = "100 2000 W";
 
-        var expectedOutput1 = new Position(new Point(), CardinalDirection.N);
-        var expectedOutput2 = new Position(new Point(), CardinalDirection.E);
-        var expectedOutput3 = new Position(new Point(), CardinalDirection.S);
-        var expectedOutput4 = new Position(new Point(), CardinalDirection.W);
+        var expectedOutput1 = new Position(new Point(12, 23), CardinalDirection.N);
+        var expectedOutput2 = new Position(new Point(0, 5), CardinalDirection.E);
+        var expectedOutput3 = new Position(new Point(9, 4), CardinalDirection.S);
+        var expectedOutput4 = new Position(new Point(100, 2000), CardinalDirection.W);
 
         var result1 = parse(input1);
         var result2 = parse(input2);
@@ -31,10 +31,14 @@ class PositionParserTest {
         var result4 = parse(input4);
 
         assertAll(
-                () -> assertEquals(expectedOutput1, result1),
-                () -> assertEquals(expectedOutput2, result2),
-                () -> assertEquals(expectedOutput3, result3),
-                () -> assertEquals(expectedOutput4, result4)
+                () -> assertEquals(expectedOutput1.getCoordinate().toString(), result1.getCoordinate().toString()),
+                () -> assertEquals(expectedOutput1.getFacing(), result1.getFacing()),
+                () -> assertEquals(expectedOutput2.getCoordinate().toString(), result2.getCoordinate().toString()),
+                () -> assertEquals(expectedOutput2.getFacing(), result2.getFacing()),
+                () -> assertEquals(expectedOutput3.getCoordinate().toString(), result3.getCoordinate().toString()),
+                () -> assertEquals(expectedOutput3.getFacing(), result3.getFacing()),
+                () -> assertEquals(expectedOutput4.getCoordinate().toString(), result4.getCoordinate().toString()),
+                () -> assertEquals(expectedOutput4.getFacing(), result4.getFacing())
         );
 
     }
