@@ -7,15 +7,21 @@ import java.util.Map;
 public class Plateau {
 
     private Map<Point, Rover> map;
+    private final PlateauSize size;
     private static Plateau instance;
 
-    private Plateau() {
-        map = new HashMap<>();
+    private Plateau(PlateauSize size) {
+        this.map = new HashMap<>();
+        this.size = size;
     }
 
-    public static Plateau getInstance(/*as per constructor*/) {
+    public Map<Point, Rover> getMap() {
+        return map;
+    }
+
+    public static Plateau getInstance(PlateauSize size) {
         if (instance == null) {
-            instance = new Plateau();
+            instance = new Plateau(size);
         }
         return instance;
     }
