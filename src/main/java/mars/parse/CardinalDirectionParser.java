@@ -3,16 +3,22 @@ package mars.parse;
 import mars.CardinalDirection;
 import mars.Instruction;
 
+import java.util.IllegalFormatException;
+
 public class CardinalDirectionParser {
 
-    public static CardinalDirection parse(String input) {
-        String direction = input.replaceAll("[^NnEeSsWw]", "");
-        try {
-            return CardinalDirection.valueOf(direction.toUpperCase());
-        } catch (IllegalArgumentException e) {
-            System.out.println("Input doesn't contain a valid direction");
+    public static CardinalDirection parse(String input) throws IllegalFormatException {
+        if (input == null) {
+            throw new IllegalArgumentException("Cannot parse null string");
         }
-        return null;
+
+        if (!input.matches(".*[NnEeSsWw].*")) {
+            throw new IllegalArgumentException("Cannot parse string without a direction");
+        }
+
+        String direction = input.replaceAll("[^NnEeSsWw]", "");
+
+        return CardinalDirection.valueOf(direction.toUpperCase());
     }
 
 }
