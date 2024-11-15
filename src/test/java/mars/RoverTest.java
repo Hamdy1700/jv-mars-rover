@@ -74,6 +74,33 @@ class RoverTest {
 
     }
 
+    @Test
+    void testMoveForwardStandard() {
 
+        var expectedOutput1 = 11;
+        var expectedOutput2 = 1;
+        var expectedOutput3 = 10;
+        var expectedOutput4 = 0;
+
+        gema.moveForward();
+        var result1 = gema.getPosition().getCoordinate().getY();
+        gema.rotate(Instruction.R);
+        gema.moveForward();
+        var result2 = gema.getPosition().getCoordinate().getX();
+        gema.rotate(Instruction.R);
+        gema.moveForward();
+        var result3 = gema.getPosition().getCoordinate().getY();
+        gema.rotate(Instruction.R);
+        gema.moveForward();
+        var result4 = gema.getPosition().getCoordinate().getX();
+
+        assertAll(
+                () -> assertEquals(expectedOutput1, result1),
+                () -> assertEquals(expectedOutput2, result2),
+                () -> assertEquals(expectedOutput3, result3),
+                () -> assertEquals(expectedOutput4, result4)
+        );
+
+    }
 
 }
