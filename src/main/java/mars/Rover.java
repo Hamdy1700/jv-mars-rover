@@ -33,6 +33,15 @@ public class Rover {
         }
     }
 
+    public void moveBackwards() {
+        switch (position.getFacing()) {
+            case N -> position.translateCoordinates(0, -1);
+            case E -> position.translateCoordinates(-1, 0);
+            case S -> position.translateCoordinates(0, 1);
+            case W -> position.translateCoordinates(1, 0);
+        }
+    }
+
     public Position getPosition() {
         return position;
     }

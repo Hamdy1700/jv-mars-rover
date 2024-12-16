@@ -16,4 +16,19 @@ public class PlateauSize {
         X_MAX = (int) TOP_RIGHT_COORDINATE.getX();
     }
 
+    public int getY_MAX() {
+        return Y_MAX;
+    }
+
+    public int getX_MAX() {
+        return X_MAX;
+    }
+
+    public int getY_MIN() {
+        return Y_MIN;
+    }
+
+    public int getX_MIN() {
+        return X_MIN;
+    }
 }

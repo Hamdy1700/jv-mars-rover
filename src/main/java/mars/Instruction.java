@@ -1,4 +1,6 @@
-enum Instruction {
+package mars;
+
+public enum Instruction {
     L,
     R,
     M;

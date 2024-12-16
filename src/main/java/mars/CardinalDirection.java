@@ -1,4 +1,6 @@
-enum CardinalDirection {
+package mars;
+
+public enum CardinalDirection {
     N,
     E,
     S,
